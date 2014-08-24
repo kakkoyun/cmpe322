@@ -1,0 +1,16 @@
+In this assignment you are expected to write a chat server and client, which communicates over AF_UNIX domain using
+streams. Both client and server uses single line, carriage return terminated messages to communicate. When the client
+first connects to server (whose filesystem name/randezvouz-point is the first command line argument)  it will send
+"name: xxx" where xxx is the nickname chosen by user (given to the client program as the second command line argument).
+After this initiation the client can send messages such as "everyone:  msg ...", or "xxx: msg...", to send messages to
+everyone or to a particular user only, respectively. Also the client should be able to receive a space delimited list
+of nicknames by sending the command "users:". In the meantime the server will be delivering messages in the form "from-
+xxx: msg..." or "private-from-xxx: msg ...".
+
+The server program should be started as in the following example command line:
+
+      chatserver.py     /tmp/mysocket
+
+And the client as:
+
+     chatclient.py    /tmp/mysocket dark-night
